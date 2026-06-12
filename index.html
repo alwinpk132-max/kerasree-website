@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <title>Kerasree | Pure Traditional Kerala Oils</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -59,38 +60,35 @@
         <p class="section-kicker">Products</p>
         <h2>Pure oils in practical sizes.</h2>
       </div>
+      <div class="product-filters reveal" aria-label="Filter products by category">
+        <button class="filter-btn" type="button" data-filter="velichenna">വെളിച്ചെണ്ണ</button>
+      </div>
       <div class="product-grid">
-        <article class="product-card reveal">
+        <article class="product-card" data-category="velichenna">
+          <img class="product-img" src="images/1000ml.jpg" alt="Kerasree Coconut Oil 1000 ml">
           <div>
-            <p class="malayalam-label">വെളിച്ചെണ്ണ</p>
-            <h3>Coconut Oil</h3>
+            <h3>1000ml</h3>
           </div>
-          <ul class="price-list" aria-label="Coconut oil prices">
-            <li><span>1 Litre</span><strong>₹250</strong></li>
-            <li><span>500 ml</span><strong>₹125</strong></li>
-            <li><span>200 ml</span><strong>₹55</strong></li>
+          <ul class="price-list" aria-label="Kerasree Coconut Oil 1000 ml price">
+            <li><span>1000ml</span><strong>₹250</strong></li>
           </ul>
         </article>
-        <article class="product-card reveal">
+        <article class="product-card" data-category="velichenna">
+          <img class="product-img" src="images/500ml.jpg" alt="Kerasree Coconut Oil 500 ml">
           <div>
-            <p class="malayalam-label">എള്ളെണ്ണ</p>
-            <h3>Ellenna</h3>
+            <h3>500ml</h3>
           </div>
-          <ul class="price-list" aria-label="Ellenna prices">
-            <li><span>1 Litre</span><strong>₹250</strong></li>
-            <li><span>500 ml</span><strong>₹125</strong></li>
-            <li><span>200 ml</span><strong>₹55</strong></li>
+          <ul class="price-list" aria-label="Kerasree Coconut Oil 500 ml price">
+            <li><span>500ml</span><strong>₹125</strong></li>
           </ul>
         </article>
-        <article class="product-card reveal">
+        <article class="product-card" data-category="velichenna">
+          <img class="product-img" src="images/200ml.jpg" alt="Kerasree Coconut Oil 200 ml">
           <div>
-            <p class="malayalam-label">കടുകെണ്ണ</p>
-            <h3>Kadukenna</h3>
+            <h3>200ml</h3>
           </div>
-          <ul class="price-list" aria-label="Kadukenna prices">
-            <li><span>1 Litre</span><strong>₹250</strong></li>
-            <li><span>500 ml</span><strong>₹125</strong></li>
-            <li><span>200 ml</span><strong>₹55</strong></li>
+          <ul class="price-list" aria-label="Kerasree Coconut Oil 200 ml price">
+            <li><span>200ml</span><strong>₹55</strong></li>
           </ul>
         </article>
       </div>
@@ -164,11 +162,11 @@
           <label>
             Rating
             <div class="rating-input" id="ratingInput" role="radiogroup" aria-label="Choose star rating">
-              <button type="button" data-rating="1" aria-label="1 star">★</button>
-              <button type="button" data-rating="2" aria-label="2 stars">★</button>
-              <button type="button" data-rating="3" aria-label="3 stars">★</button>
-              <button type="button" data-rating="4" aria-label="4 stars">★</button>
-              <button type="button" data-rating="5" aria-label="5 stars">★</button>
+              <button type="button" data-rating="1" aria-label="1 star"><span class="stars">★</span></button>
+              <button type="button" data-rating="2" aria-label="2 stars"><span class="stars">★</span></button>
+              <button type="button" data-rating="3" aria-label="3 stars"><span class="stars">★</span></button>
+              <button type="button" data-rating="4" aria-label="4 stars"><span class="stars">★</span></button>
+              <button type="button" data-rating="5" aria-label="5 stars"><span class="stars">★</span></button>
             </div>
           </label>
           <label>
@@ -183,11 +181,11 @@
             <span>Most recent first</span>
             <div class="filter-chips" id="reviewFilters" aria-label="Filter reviews by rating">
               <button class="active" type="button" data-filter="all">All</button>
-              <button type="button" data-filter="5">5★</button>
-              <button type="button" data-filter="4">4★</button>
-              <button type="button" data-filter="3">3★</button>
-              <button type="button" data-filter="2">2★</button>
-              <button type="button" data-filter="1">1★</button>
+              <button type="button" data-filter="5">5<span class="stars">★</span></button>
+              <button type="button" data-filter="4">4<span class="stars">★</span></button>
+              <button type="button" data-filter="3">3<span class="stars">★</span></button>
+              <button type="button" data-filter="2">2<span class="stars">★</span></button>
+              <button type="button" data-filter="1">1<span class="stars">★</span></button>
             </div>
           </div>
           <div class="review-grid" id="reviewList" aria-live="polite"></div>
@@ -233,3 +231,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

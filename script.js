@@ -54,6 +54,29 @@ rippleButtons.forEach((button) => {
   });
 });
 
+const productFilterButtons = document.querySelectorAll(".product-filters .filter-btn");
+const productCards = document.querySelectorAll(".product-grid .product-card");
+
+const showProducts = () => {
+  productCards.forEach((product, index) => {
+    product.classList.remove("show");
+    window.setTimeout(() => {
+      product.classList.add("show");
+    }, index * 200);
+  });
+};
+
+productFilterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    productFilterButtons.forEach((filterButton) => {
+      filterButton.classList.toggle("active", filterButton === button);
+    });
+    showProducts();
+  });
+});
+
+showProducts();
+
 const reviewSeed = [
   {
     name: "Local customer, Pookkad",
@@ -121,8 +144,11 @@ const formatDate = (dateValue) =>
     year: "numeric"
   }).format(new Date(dateValue));
 
-const starMarkup = (rating, large = false) =>
-  `<span class="star-display${large ? " large-stars" : ""}" style="--rating: ${rating}" aria-label="${rating} out of 5 stars"></span>`;
+const starMarkup = (rating) => {
+  const fullStars = "★".repeat(Math.round(rating));
+  const emptyStars = "☆".repeat(5 - Math.round(rating));
+  return `<span class="stars" aria-label="${rating} out of 5 stars">${fullStars}${emptyStars}</span>`;
+};
 
 const updateRatingInput = (previewRating = selectedRating) => {
   ratingButtons.forEach((button) => {

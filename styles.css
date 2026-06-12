@@ -31,7 +31,7 @@ body {
   background:
     radial-gradient(circle at 14% 8%, rgba(200, 169, 106, 0.13), transparent 34rem),
     linear-gradient(180deg, #fbfaf6 0%, var(--cream) 44%, #f4efe5 100%);
-  font-family: "Manrope", "Noto Sans Malayalam", system-ui, sans-serif;
+  font-family: "Noto Sans Malayalam", "Manrope", system-ui, sans-serif;
   line-height: 1.65;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -431,10 +431,45 @@ h2 {
 }
 
 .product-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2vw, 26px);
-  margin-top: clamp(54px, 7vw, 84px);
+  margin-top: clamp(34px, 5vw, 58px);
+}
+
+.product-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(34px, 5vw, 56px);
+}
+
+.filter-btn {
+  min-height: 44px;
+  padding: 10px 20px;
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: "Noto Sans Malayalam", "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 14px 34px rgba(16, 35, 24, 0.05);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: rgba(200, 169, 106, 0.52);
+  box-shadow: 0 20px 48px rgba(16, 35, 24, 0.09);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: black;
+  color: white;
+  box-shadow: 0 18px 48px rgba(31, 61, 43, 0.18), 0 0 0 1px rgba(200, 169, 106, 0.24);
 }
 
 .product-card,
@@ -443,8 +478,27 @@ h2 {
   overflow: hidden;
   min-height: 330px;
   padding: clamp(32px, 4vw, 52px);
-  transition: border-color 460ms var(--ease), box-shadow 460ms var(--ease), transform 460ms var(--ease), background 460ms var(--ease);
+  transition: all 0.4s ease, border-color 460ms var(--ease), box-shadow 460ms var(--ease), transform 460ms var(--ease), background 460ms var(--ease);
   will-change: transform;
+}
+
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.product-card.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  position: absolute;
+}
+
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
 }
 
 .product-card::before,
@@ -477,6 +531,20 @@ h2 {
   font-family: "Noto Sans Malayalam", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.stars {
+  color: gold;
+  font-size: 18px;
 }
 
 h3 {
@@ -1012,6 +1080,23 @@ h3 {
   animation-delay: var(--item-delay, 0ms);
 }
 
+.product-grid .product-card.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  position: absolute;
+}
+
+.product-grid .product-card.show {
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+}
+
+.product-grid .product-card.show:hover {
+  transform: translateY(-10px) scale(1);
+}
+
 @keyframes heroIntro {
   from {
     opacity: 0;
@@ -1149,6 +1234,16 @@ h3 {
 
   .filter-chips {
     justify-content: flex-start;
+  }
+
+  .product-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    min-height: 40px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
   }
 
   .section-panel {
