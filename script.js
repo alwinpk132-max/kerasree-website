@@ -1,4 +1,4 @@
-document.body.classList.add("page-loaded");
+﻿document.body.classList.add("page-loaded");
 
 const revealItems = document.querySelectorAll(".reveal");
 
@@ -145,8 +145,8 @@ const formatDate = (dateValue) =>
   }).format(new Date(dateValue));
 
 const starMarkup = (rating) => {
-  const fullStars = "★".repeat(Math.round(rating));
-  const emptyStars = "☆".repeat(5 - Math.round(rating));
+  const fullStars = "\u2605".repeat(Math.round(rating));
+  const emptyStars = "\u2606".repeat(5 - Math.round(rating));
   return `<span class="stars" aria-label="${rating} out of 5 stars">${fullStars}${emptyStars}</span>`;
 };
 
@@ -243,3 +243,4 @@ reviewForm?.addEventListener("submit", (event) => {
 
 updateRatingInput();
 renderReviews();
+
